@@ -1,0 +1,13 @@
+{
+  "parserOpts": {
+    "allowReturnOutsideFunction": true
+  },
+  "plugins": ["@babel/plugin-transform-class-properties"],
+  "presets": [
+    ["@babel/preset-env", {
+      "useBuiltIns": "entry",
+      "corejs": 3
+    }]
+  ],
+  "exclude": ["node_modules"]
+}

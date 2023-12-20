@@ -2,7 +2,7 @@
   "name": "@jitsi/rtcstats",
   "version": "9.7.0",
   "description": "gather WebRTC API traces and statistics",
-  "main": "rtcstats.js",
+  "main": "./dist/rtcstats.js",
   "dependencies": {
     "@jitsi/js-utils": "^2.2.0",
     "@jitsi/logger": "2.0.2",
@@ -10,11 +10,18 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-class-properties": "^7.23.3",
+    "@babel/preset-env": "^7.23.6",
     "@jitsi/eslint-config": "^4.1.1",
+    "core-js": "^3.34.0",
     "eslint": "8.1.0",
     "eslint-plugin-import": "2.25.2"
   },
   "scripts": {
+    "build": "npx babel . --out-dir dist --ignore 'node_modules/**'",
     "lint": "eslint rtcstats.js trace-ws.js"
   },
   "repository": {
