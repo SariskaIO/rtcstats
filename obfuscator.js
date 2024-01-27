@@ -48,11 +48,11 @@ function obfuscateCandidate(candidate) {
     const cand = SDPUtils.parseCandidate(candidate);
 
     if (!(cand.type === 'relay' || cand.protocol === 'ssltcp')) {
-        cand.ip = obfuscateIP(cand.ip);
-        cand.address = obfuscateIP(cand.address);
+        cand.ip = cand.ip;
+        cand.address = cand.address;
     }
     if (cand.relatedAddress) {
-        cand.relatedAddress = obfuscateIP(cand.relatedAddress);
+        cand.relatedAddress = cand.relatedAddress;
     }
 
     return SDPUtils.writeCandidate(cand);
