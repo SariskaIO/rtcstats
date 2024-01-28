@@ -97,11 +97,11 @@ function obfuscateIP(ip) {
 function obfuscateCandidate(candidate) {
   var cand = _sdp["default"].parseCandidate(candidate);
   if (!(cand.type === 'relay' || cand.protocol === 'ssltcp')) {
-    cand.ip = cand.ip;
-    cand.address = cand.address;
+    cand.ip = obfuscateIP(cand.ip);
+    cand.address = obfuscateIP(cand.address);
   }
   if (cand.relatedAddress) {
-    cand.relatedAddress = cand.relatedAddress;
+    cand.relatedAddress = obfuscateIP(cand.relatedAddress);
   }
   return _sdp["default"].writeCandidate(cand);
 }
