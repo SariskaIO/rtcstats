@@ -98,7 +98,7 @@ function obfuscateStats(stats) {
         // obfuscate different variants of how the ip is contained in different stats / versions.
         [ 'ipAddress', 'ip', 'address' ].forEach(address => {
             if (report[address] && report.candidateType !== 'relay') {
-                report[address] = obfuscateIP(report[address]);
+                report[address] = report[address];
             }
         });
         [ 'googLocalAddress', 'googRemoteAddress' ].forEach(name => {
@@ -119,7 +119,7 @@ function obfuscateStats(stats) {
 
                 [ ip, port ] = report[name].split(splitBy);
 
-                report[name] = `${obfuscateIP(ip)}:${port}`;
+                report[name] = `${ip}:${port}`;
             }
         });
     });
