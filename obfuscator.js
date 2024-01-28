@@ -49,11 +49,11 @@ function obfuscateCandidate(candidate) {
     const cand = SDPUtils.parseCandidate(candidate);
 
     if (!(cand.type === 'relay' || cand.protocol === 'ssltcp')) {
-        cand.ip = obfuscateIP(cand.ip);
-        cand.address = obfuscateIP(cand.address);
+        cand.ip = cand.ip;
+        cand.address = cand.address;
     }
     if (cand.relatedAddress) {
-        cand.relatedAddress = obfuscateIP(cand.relatedAddress);
+        cand.relatedAddress = cand.relatedAddress;
     }
 
     return SDPUtils.writeCandidate(cand);
@@ -99,7 +99,7 @@ function obfuscateStats(stats) {
         // obfuscate different variants of how the ip is contained in different stats / versions.
         [ 'ipAddress', 'ip', 'address' ].forEach(address => {
             if (report[address] && report.candidateType !== 'relay') {
-                report[address] = obfuscateIP(report[address]);
+                report[address] = report[address];
             }
         });
         [ 'googLocalAddress', 'googRemoteAddress' ].forEach(name => {
@@ -120,7 +120,7 @@ function obfuscateStats(stats) {
 
                 [ ip, port ] = report[name].split(splitBy);
 
-                report[name] = `${obfuscateIP(ip)}:${port}`;
+                report[name] = `${ip}:${port}`;
             }
         });
     });
