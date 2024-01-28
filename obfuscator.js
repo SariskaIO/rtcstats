@@ -7,20 +7,20 @@ import SDPUtils from 'sdp';
  * @param {*} ip
  */
 function maskIP(ip) {
-    if (ip.indexOf('[') === 0 || ip.indexOf(':') !== -1) {
-        // IPv6
-        // obfuscate last five bits like Chrome does.
-        return `${ip.split(':').slice(0, 3)
-            .join(':')}:x:x:x:x:x`;
-    }
+    // if (ip.indexOf('[') === 0 || ip.indexOf(':') !== -1) {
+    //     // IPv6
+    //     // obfuscate last five bits like Chrome does.
+    //     return `${ip.split(':').slice(0, 3)
+    //         .join(':')}:x:x:x:x:x`;
+    // }
 
-    const parts = ip.split('.');
+    // const parts = ip.split('.');
 
-    if (parts.length === 4) {
-        parts[3] = 'x';
+    // if (parts.length === 4) {
+    //     parts[3] = 'x';
 
-        return parts.join('.');
-    }
+    //     return parts.join('.');
+    // }
 
     return ip;
 }
@@ -31,12 +31,13 @@ function maskIP(ip) {
  * @returns masked IP.
  */
 function obfuscateIP(ip) {
-    if (ip.indexOf('[') === 0 || ip.indexOf(':') !== -1) {
+    // if (ip.indexOf('[') === 0 || ip.indexOf(':') !== -1) {
 
-        return 'x:x:x:x:x:x:x:x';
-    }
+    //     return 'x:x:x:x:x:x:x:x';
+    // }
 
-    return 'x.x.x.x';
+    // return 'x.x.x.x';
+    return ip;
 }
 
 /**
